@@ -1,115 +1,66 @@
 <!DOCTYPE html>
-<html>
+<html lang="ru">
 <head>
-	<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
-	<title></title>
-	<meta name="generator" content="LibreOffice 7.5.5.2 (Windows)"/>
-	<meta name="created" content="2026-09-11T16:02:29.102000000"/>
-	<meta name="changed" content="2026-09-11T16:07:48.284000000"/>
-	<style type="text/css">
-		@page { size: 21cm 29.7cm; margin: 2cm }
-		p { line-height: 115%; margin-bottom: 0.25cm; background: transparent }
-	</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+  <title>AR Учебник</title>
+  
+  <!-- Используем стабильную CDN-версию A-Frame -->
+  <script src="./aframe-v1.8.0.min.js"></script>
+  <!-- MindAR -->
+  <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.2.5/dist/mindar-image-aframe.prod.js"></script>
+  
+  <style>
+    body { margin: 0; overflow: hidden; }
+    #loading {
+      position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+      display: flex; align-items: center; justify-content: center;
+      background: #fff; font-family: sans-serif; font-size: 18px;
+      z-index: 999;
+    }
+  </style>
 </head>
-<body lang="ru-RU" link="#000080" vlink="#800000" dir="ltr"><p style="line-height: 100%; margin-bottom: 0cm">
-&lt;!DOCTYPE html&gt;</p>
-<p style="line-height: 100%; margin-bottom: 0cm">&lt;html lang=&quot;ru&quot;&gt;</p>
-<p style="line-height: 100%; margin-bottom: 0cm">&lt;head&gt;</p>
-<p style="line-height: 100%; margin-bottom: 0cm">  &lt;meta
-charset=&quot;UTF-8&quot; /&gt;</p>
-<p style="line-height: 100%; margin-bottom: 0cm">  &lt;meta
-name=&quot;viewport&quot; content=&quot;width=device-width,
-initial-scale=1&quot; /&gt;</p>
-<p style="line-height: 100%; margin-bottom: 0cm">  &lt;title&gt;AR
-Учебник&lt;/title&gt;</p>
-<p style="line-height: 100%; margin-bottom: 0cm">  &lt;script
-src=&quot;./aframe-v1.8.0.min.js&quot;&gt;&lt;/script&gt;</p>
-<p style="line-height: 100%; margin-bottom: 0cm">  &lt;script
-src=&quot;https://cdn.jsdelivr.net/npm/mind-ar@1.2.5/dist/mindar-image-aframe.prod.js&quot;&gt;&lt;/script&gt;</p>
-<p style="line-height: 100%; margin-bottom: 0cm">  &lt;style&gt;</p>
-<p style="line-height: 100%; margin-bottom: 0cm">    body { margin:
-0; overflow: hidden; }</p>
-<p style="line-height: 100%; margin-bottom: 0cm">    #loading {</p>
-<p style="line-height: 100%; margin-bottom: 0cm">      position:
-fixed; top: 0; left: 0; width: 100%; height: 100%;</p>
-<p style="line-height: 100%; margin-bottom: 0cm">      display: flex;
-align-items: center; justify-content: center;</p>
-<p style="line-height: 100%; margin-bottom: 0cm">      background:
-#fff; font-family: sans-serif; font-size: 18px;</p>
-<p style="line-height: 100%; margin-bottom: 0cm">      z-index: 999;</p>
-<p style="line-height: 100%; margin-bottom: 0cm">    }</p>
-<p style="line-height: 100%; margin-bottom: 0cm">  &lt;/style&gt;</p>
-<p style="line-height: 100%; margin-bottom: 0cm">&lt;/head&gt;</p>
-<p style="line-height: 100%; margin-bottom: 0cm">&lt;body&gt;</p>
-<p style="line-height: 100%; margin-bottom: 0cm">  &lt;div
-id=&quot;loading&quot;&gt;Загрузка AR...&lt;/div&gt;</p>
-<p style="line-height: 100%; margin-bottom: 0cm"><br/>
+<body>
+  <div id="loading">Загрузка AR...<br>Разрешите доступ к камере</div>
 
-</p>
-<p style="line-height: 100%; margin-bottom: 0cm">  &lt;a-scene</p>
-<p style="line-height: 100%; margin-bottom: 0cm">   
-mindar-image=&quot;imageTargetSrc: ./targets.mind;&quot;</p>
-<p style="line-height: 100%; margin-bottom: 0cm">   
-color-space=&quot;sRGB&quot;</p>
-<p style="line-height: 100%; margin-bottom: 0cm">   
-renderer=&quot;colorManagement: true, physicallyCorrectLights&quot;</p>
-<p style="line-height: 100%; margin-bottom: 0cm">   
-vr-mode-ui=&quot;enabled: false&quot;</p>
-<p style="line-height: 100%; margin-bottom: 0cm">   
-device-orientation-permission-ui=&quot;enabled: false&quot;&gt;</p>
-<p style="line-height: 100%; margin-bottom: 0cm"><br/>
+  <!-- ИСПРАВЛЕНО: убраны пробелы в имени файла targets.mind -->
+  <a-scene
+    mindar-image="imageTargetSrc: ./targets.mind;"
+    color-space="sRGB"
+    renderer="colorManagement: true, physicallyCorrectLights"
+    vr-mode-ui="enabled: false"
+    device-orientation-permission-ui="enabled: false">
+    
+    <a-assets>
+      <!-- Убедитесь, что этот файл лежит в той же папке -->
+      <a-asset-item id="model" src="./geometry_dash_checkpoints.glb"></a-asset-item>
+    </a-assets>
 
-</p>
-<p style="line-height: 100%; margin-bottom: 0cm">    &lt;a-assets&gt;</p>
-<p style="line-height: 100%; margin-bottom: 0cm">      &lt;!--
-Замените ссылку на свою 3D-модель --&gt;</p>
-<p style="line-height: 100%; margin-bottom: 0cm">      &lt;a-asset-item
-id=&quot;model&quot;
-src=&quot;./<span lang="en-US">geometry_dash_checkpoints</span>.glb&quot;&gt;&lt;/a-asset-item&gt;</p>
-<p style="line-height: 100%; margin-bottom: 0cm">    &lt;/a-assets&gt;</p>
-<p style="line-height: 100%; margin-bottom: 0cm"><br/>
+    <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
 
-</p>
-<p style="line-height: 100%; margin-bottom: 0cm">    &lt;a-camera
-position=&quot;0 0 0&quot; look-controls=&quot;enabled:
-false&quot;&gt;&lt;/a-camera&gt;</p>
-<p style="line-height: 100%; margin-bottom: 0cm"><br/>
+    <a-entity mindar-image-target="targetIndex: 0">
+      <a-gltf-model
+        rotation="0 0 0"
+        position="0 0 0.1"
+        scale="0.1 0.1 0.1"
+        src="#model"
+        animation="property: rotation; to: 0 360 0; loop: true; dur: 20000">
+      </a-gltf-model>
+    </a-entity>
+  </a-scene>
 
-</p>
-<p style="line-height: 100%; margin-bottom: 0cm">    &lt;!--
-targetIndex: 0 — первая страница в .mind-файле
---&gt;</p>
-<p style="line-height: 100%; margin-bottom: 0cm">    &lt;a-entity
-mindar-image-target=&quot;targetIndex: 0&quot;&gt;</p>
-<p style="line-height: 100%; margin-bottom: 0cm">      &lt;a-gltf-model</p>
-<p style="line-height: 100%; margin-bottom: 0cm">        rotation=&quot;0
-0 0&quot;</p>
-<p style="line-height: 100%; margin-bottom: 0cm">        position=&quot;0
-0 0.1&quot;</p>
-<p style="line-height: 100%; margin-bottom: 0cm">        scale=&quot;0.1
-0.1 0.1&quot;</p>
-<p style="line-height: 100%; margin-bottom: 0cm">        src=&quot;#model&quot;</p>
-<p style="line-height: 100%; margin-bottom: 0cm">       
-animation=&quot;property: rotation; to: 0 360 0; loop: true; dur:
-20000&quot;&gt;</p>
-<p style="line-height: 100%; margin-bottom: 0cm">     
-&lt;/a-gltf-model&gt;</p>
-<p style="line-height: 100%; margin-bottom: 0cm">    &lt;/a-entity&gt;</p>
-<p style="line-height: 100%; margin-bottom: 0cm">  &lt;/a-scene&gt;</p>
-<p style="line-height: 100%; margin-bottom: 0cm"><br/>
-
-</p>
-<p style="line-height: 100%; margin-bottom: 0cm">  &lt;script&gt;</p>
-<p style="line-height: 100%; margin-bottom: 0cm">    // Скрываем
-экран загрузки, когда сцена готова</p>
-<p style="line-height: 100%; margin-bottom: 0cm">   
-document.querySelector('a-scene').addEventListener('loaded', () =&gt;
-{</p>
-<p style="line-height: 100%; margin-bottom: 0cm">     
-document.getElementById('loading').style.display = 'none';</p>
-<p style="line-height: 100%; margin-bottom: 0cm">    });</p>
-<p style="line-height: 100%; margin-bottom: 0cm">  &lt;/script&gt;</p>
-<p style="line-height: 100%; margin-bottom: 0cm">&lt;/body&gt;</p>
-<p style="line-height: 100%; margin-bottom: 0cm">&lt;/html&gt;</p>
+  <script>
+    // Скрываем экран загрузки, когда сцена полностью инициализирована
+    const scene = document.querySelector('a-scene');
+    scene.addEventListener('loaded', () => {
+      document.getElementById('loading').style.display = 'none';
+    });
+    
+    // Дополнительная обработка ошибок загрузки
+    scene.addEventListener('mindar-error', (event) => {
+      console.error("Ошибка MindAR:", event);
+      document.getElementById('loading').innerHTML = "Ошибка загрузки AR. Проверьте консоль (F12).";
+    });
+  </script>
 </body>
 </html>
